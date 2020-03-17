@@ -1,6 +1,6 @@
-/* Data de submissao:
- * Nome:
- * RA:
+/* Data de submissao: 17/03/2020
+ * Nome: João Antônio Gória Silva
+ * RA: 199567
  */
 
 #include <stdio.h>
@@ -9,6 +9,24 @@ const int tam_buffer=100;
 int main() {
   char buffer[tam_buffer];
   fgets(buffer, tam_buffer, stdin);
+  char auxbuffer[tam_buffer];
+  int i = 0, letras = 0;
   printf("%s", buffer);
+  while(buffer[i] != '\n'){
+    printf("b");
+    while(buffer[i] != '\n' && buffer[i] != ' '){
+      letras++;
+      i++;
+      printf("a");
+    }
+
+    auxbuffer[i] = ' ';
+    for(int j = letras-i;j<i;j++)
+      auxbuffer[j] = buffer[letras-j-1];
+  }
+  auxbuffer[i] = '\n';
+  auxbuffer[i+1] = '\0';
+
+  printf("%s", auxbuffer);
   return 0;
 }
